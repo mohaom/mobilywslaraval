@@ -38,7 +38,7 @@ class MobilywsProvider extends ServiceProvider
     public function register()
     {
        
-            $this->app['Mobily'] = $this->app->share(function($app)
+            $this->app['Mobily'] = $this->app->singleton('tymon.jwt.provider.user', function ($app) {
             {
                 return new Mobily();
             });
